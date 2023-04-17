@@ -1,0 +1,16 @@
+
+# Set the working directory in the container
+FROM python:3.8-slim-buster
+
+# Step 2: Copy the code to the Docker image
+WORKDIR /app
+COPY . /app 
+RUN pip install selenium pytest
+
+
+
+# Copy the application code to the container
+COPY . .
+
+# Set the command to run the application
+CMD [ "pytest" ]
